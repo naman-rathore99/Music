@@ -95,10 +95,10 @@ const [mobileMenu, setMobileMenu] = useState(false)
               onClick={() => setMobileMenu(false)}
             >
               <span
-                className={` ${
-                  location.pathname === menu.path &&
-                  'bg-gray-200 dark:bg-gray-700'
-                } p-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700`}
+                // className={` ${
+                //   location.pathname === menu.path &&
+                //   'bg-gray-200 dark:bg-gray-700'
+                // } p-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700`}
               >
                 {menu.title}
               </span>
