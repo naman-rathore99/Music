@@ -1,6 +1,7 @@
 import React from 'react';
 import Toggle from './Toggle';
-
+import Logo from "./../public/logo.png"
+import Image from 'next/image';
 interface NavbarProps {
   title: string;
 }
@@ -11,7 +12,7 @@ const Navbar: React.FC<NavbarProps> = () => {
     <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
     <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
         <a href="#" className="flex items-center">
-            <img src="" className="h-6 mr-3 sm:h-9" alt="img" />
+            <Image src={Logo} className="sm:h-4 w-4"  alt="img" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Music</span>
         </a>
         <div className="flex items-center lg:order-2">
