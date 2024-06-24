@@ -3,7 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./Theme-provider";
 
-const inter = Montserrat({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Music",
@@ -21,7 +21,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
 
       </head>
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
