@@ -37,7 +37,8 @@ export function Sidebaritems({ icon, text, active, alert }: {
     size: number;
 }): JSX.Element {
     return (
-        <li  >
+        <li className="flex gap-4 p-4 text-sm">
+            
             {icon}
             <span>{text}</span>
         </li>

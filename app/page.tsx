@@ -8,8 +8,9 @@ import { Boxes, LayoutDashboard, Package, Receipt, Settings, UserCircle } from "
 export default function Home() {
 
   return (
+    <>
     <div className="flex h-screen">
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col ">
         <Sidebar>
           <Sidebaritems icon={<LayoutDashboard size={20} />} text="Dashboard" alert active={undefined} />
           <Sidebaritems icon={<UserCircle size={20} />} text="Dashboard" alert />
@@ -21,5 +22,6 @@ export default function Home() {
       </div>
       <Navbar title="Music" />
     </div>
+    </>
   );
 }
