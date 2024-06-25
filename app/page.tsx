@@ -9,9 +9,6 @@ export default function Home() {
 
   return (
     <div className="flex h-screen">
-
-      <Navbar title="Music" />
-
       <div className="flex flex-col flex-1">
         <Sidebar>
           <Sidebaritems icon={<LayoutDashboard size={20} />} text="Dashboard" alert active={undefined} />
@@ -21,8 +18,8 @@ export default function Home() {
           <Sidebaritems icon={<Receipt size={20} />} text="Dashboard" alert />
           <Sidebaritems icon={<Settings size={20} />} text="Dashboard" alert />
         </Sidebar>
-
       </div>
+      <Navbar title="Music" />
     </div>
   );
 }
