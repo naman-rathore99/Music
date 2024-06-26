@@ -15,7 +15,7 @@ const Sidebar = ({ children }: any) => {
                 <div className="border-t flex p-3">
                     <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ffreebiesupply.com%2Flogos%2Ftemp-logo-2%2F&psig=AOvVaw0AJxcH7WSkvqJy1N1Rzzxr&ust=1719301334413000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCMjQu97e84YDFQAAAAAdAAAAABAE" alt="" className="w-10 h-10 rounded-md" />
 
-                    <div className="flex justify0betwwn items-center w-52 ml-3"></div>
+                    <div className="flex justify-between items-center w-52 ml-3"></div>
                     <div>
                         <h4 className="font-semibold">Sidebar</h4>
                         <span className="text-xs text-gray-600">text</span>
@@ -37,9 +37,10 @@ export function Sidebaritems({ icon, text, active, alert }: {
     size: number;
 }): JSX.Element {
     return (
-        <li className="flex gap-4 p-4 text-sm hover:text-blue-500 cursor-pointer text-medium">
+        <li className={`relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors ${active ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800": "hover:bg-indigo-50 text-gray-600"}`}>
             {icon}
-            <span>{text}</span>
+            <span className="w-52 ml-3">{text}</span>
+            {alert && <div className={"absolute right-2 w-2 h-2 rounded bg-indigo-400"  }/>}
         </li>
     )
 }
