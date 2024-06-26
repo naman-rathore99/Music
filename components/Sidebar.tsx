@@ -2,9 +2,9 @@
 import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react"
 import { useContext, createContext, useState } from "react"
 
-const SidebarContext = createContext()
+const SidebarContext = createContext()` `
 
-export default function Sidebar({ children }) {
+export default function Sidebar({ children }:any) {
   const [expanded, setExpanded] = useState(true)
   
   return (
@@ -66,7 +66,7 @@ export function SidebarItem({ icon, text, active, alert }:any) {
         ${
           active
             ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-            : "hover:bg-indigo-50 text-gray-600 dark:text-white dark:hover:text-black"
+            : "hover:bg-indigo-50 text-gray-600 dark:text-white dark:hover:text-black    "
         }
     `}
     >
