@@ -1,15 +1,27 @@
 "use client"
 import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react"
-import { useContext, createContext, useState } from "react"
+import { useContext, createContext, useState, ReactNode, FC } from "react"
 
-const SidebarContext = createContext()` `
+// Define the SidebarContext type
+interface SidebarContextType {
+  expanded: boolean;
+}
 
-export default function Sidebar({ children }:any) {
-  const [expanded, setExpanded] = useState(true)
-  
+// Create SidebarContext with a default value
+const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
+
+// Define the Sidebar component props type
+interface SidebarProps {
+  children: ReactNode;
+}
+
+// Sidebar component
+const Sidebar: FC<SidebarProps> = ({ children }) => {
+  const [expanded, setExpanded] = useState(true);
+
   return (
     <aside className="h-screen">
-      <nav className="h-full flex flex-col bg-white dark:bg-black  border-r shadow-sm">
+      <nav className="h-full flex flex-col bg-white dark:bg-black border-r shadow-sm">
         <div className="p-4 pb-2 flex justify-between items-center ">
           <img
             src="https://img.logoipsum.com/243.svg"
@@ -20,7 +32,7 @@ export default function Sidebar({ children }:any) {
           />
           <button
             onClick={() => setExpanded((curr) => !curr)}
-            className="p-1.5 rounded-lg bg-gray-50 dark:bg-purple-400  hover:bg-gray-100"
+            className="p-1.5 rounded-lg bg-gray-50 dark:bg-purple-400 hover:bg-gray-100"
           >
             {expanded ? <ChevronFirst /> : <ChevronLast />}
           </button>
@@ -51,12 +63,29 @@ export default function Sidebar({ children }:any) {
         </div>
       </nav>
     </aside>
-  )
+  );
 }
 
-export function SidebarItem({ icon, text, active, alert }:any) {
-  const { expanded } = useContext(SidebarContext)
-  
+export default Sidebar;
+
+// Define the SidebarItem component props type
+interface SidebarItemProps {
+  icon: ReactNode;
+  text: string;
+  active: boolean;
+  alert?: boolean;
+}
+
+// SidebarItem component
+export const SidebarItem: FC<SidebarItemProps> = ({ icon, text, active, alert }) => {
+  const context = useContext(SidebarContext);
+
+  if (!context) {
+    throw new Error("SidebarItem must be used within a SidebarContext.Provider");
+  }
+
+  const { expanded } = context;
+
   return (
     <li
       className={`
@@ -66,7 +95,7 @@ export function SidebarItem({ icon, text, active, alert }:any) {
         ${
           active
             ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-            : "hover:bg-indigo-50 text-gray-600 dark:text-white dark:hover:text-black    "
+            : "hover:bg-indigo-50 text-gray-600 dark:text-white dark:hover:text-black"
         }
     `}
     >
