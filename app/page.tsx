@@ -9,18 +9,18 @@ export default function Home() {
 
   return (
     <>
-    <div className="flex h-screen">
+      <Navbar title="Music" />
+    <div className="flex  h-screen">
       <div className="flex flex-col ">
         <Sidebar>
-          <SidebarItem icon={<LayoutDashboard size={20} />} text="Dashboard" alert active={undefined} />
-          <SidebarItem icon={<UserCircle size={20} />} text="Dashboard" alert />
-          <SidebarItem icon={<Boxes size={20} />} text="Dashboard" alert />
-          <SidebarItem icon={<Package size={20} />} text="Dashboard" alert />
-          <SidebarItem icon={<Receipt size={20} />} text="Dashboard" alert />
-          <SidebarItem icon={<Settings size={20} />} text="Dashboard" alert />
+          <SidebarItem icon={<LayoutDashboard size={20} />} text="Dashboard" alert active={true} />
+          <SidebarItem icon={<UserCircle size={20} />} text="Dashboard" alert active={false}/>
+          <SidebarItem icon={<Boxes size={20} />} text="Dashboard" alert active={false}/>
+          <SidebarItem icon={<Package size={20} />} text="Dashboard" alert active={false}/>
+          <SidebarItem icon={<Receipt size={20} />} text="Dashboard" alert active={false}/>
+          <SidebarItem icon={<Settings size={20} />} text="Dashboard" alert active={false}/>
         </Sidebar>
       </div>
-      <Navbar title="Music" />
     </div>
     </>
   );
